@@ -19,6 +19,13 @@ class BuildingsController < ApplicationController
         redirect_to buildings_index_path
     end
 
+    def destroy
+        @building = Building.find(params[:id])
+        @building.destroy
+
+        redirect_to root_path
+    end
+
     private
 
     def building_params

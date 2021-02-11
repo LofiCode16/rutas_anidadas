@@ -19,6 +19,7 @@
                 <td><%= building %></td>
                 <td><%= building.address %></td>
                 <td><%= link_to  "Show apartmens", building_apartments_path(building) %></td>
+                <td><%= link_to  "Delete building", building, method: :delete, data: {confirm: 'are you sure?'} %></td>
             </tr>
         <% end %>
     </tbody>

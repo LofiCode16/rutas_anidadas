@@ -22,20 +22,23 @@ class ApartmentsController < ApplicationController
 
     def new
         @apartment = Apartment.new
-        @buildings = Building.all
+        @building = Building.find(params[:building_id])
+        # @buildings = Building.all
     end
 
     def create
-        @apartment = Apartment.new(apartment_params)
+        @building = Building.find(params[:building_id])
+        @apartment = Apartment.new(apartment_params.merge(building: @building))
+        # @apartment.building = @building
 
         @apartment.save
-        redirect_to root_path
+        redirect_to building_apartments_path(@building)
     end
 
     private
     
     def apartment_params
-        params.require(:apartment).permit(:number, :tower, :owner, :building_id)
+        params.require(:apartment).permit(:number, :tower, :owner)
     end
 end
 

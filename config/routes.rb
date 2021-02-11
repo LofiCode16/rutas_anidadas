@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'buildings/index'
   # get 'buildings/new', to: 'buildings#new'
   # post 'buildings', to: 'buildings#create'
-  resources :buildings, only: [:index, :new, :create] do
+  resources :buildings, only: [:index, :new, :create, :destroy] do
     resources :apartments, only: [:index, :new, :create, :show]
     # get 'apartments/index'
     # get 'apartments/new', to: 'apartments#new'
