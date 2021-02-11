@@ -1,0 +1,28 @@
+<h1>Apartments</h1>
+
+<h3>Search by owner</h3>
+
+<%= form_tag(root_path, method: :get) do %>
+    <%= text_field_tag :q %>
+    <%= submit_tag 'search' %>
+<% end %>
+
+<table>
+    <thead>
+        <th>Number</th>
+        <th>Building</th>
+        <th>Owner</th>
+    </thead>
+
+    <tbody>
+        <% @apartments.each do |apartment| %>
+            <tr>
+                <td><%= apartment.number %></td>
+                <td><%= apartment.building %></td>
+                <td><%= apartment.owner %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to  "New apartment", apartments_new_path %>
