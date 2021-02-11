@@ -12,6 +12,27 @@
         <%= f.text_field :address %>
     </div>
 
+    <h3>Apartment</h3>
+
+    <%= f.fields_for :apartments do |ff| %>
+        
+        <div>
+            <%= ff.label 'number' %>
+            <%= ff.number_field :number %>
+        </div>
+
+        <div>
+            <%= ff.label 'tower' %>
+            <%= ff.text_field :tower %>
+        </div>
+
+        <div>
+            <%= ff.label 'owner' %>
+            <%= ff.text_field :owner %>
+        </div>
+
+    <% end %>
+
     <div>
         <%= f.submit %>
     </div>

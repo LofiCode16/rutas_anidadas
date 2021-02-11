@@ -10,13 +10,14 @@ class BuildingsController < ApplicationController
 
     def new
         @building = Building.new
+        @building.apartments.build
     end
 
     def create
         @building = Building.new(building_params)
 
         @building.save
-        redirect_to buildings_index_path
+        redirect_to root_path
     end
 
     def destroy
@@ -29,6 +30,6 @@ class BuildingsController < ApplicationController
     private
 
     def building_params
-        params.require(:building).permit(:name, :address)
+        params.require(:building).permit(:name, :address, apartments_attributes: [:number, :tower, :owner])
     end
 end
