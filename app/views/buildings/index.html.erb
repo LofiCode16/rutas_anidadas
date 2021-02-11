@@ -18,6 +18,7 @@
             <tr>
                 <td><%= building %></td>
                 <td><%= building.address %></td>
+                <td><%= link_to  "Show apartmens", building_apartments_path(building) %></td>
             </tr>
         <% end %>
     </tbody>

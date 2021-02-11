@@ -1,0 +1,10 @@
+<h1>Apartment n° <%= @apartment.number %></h1>
+
+<h2><%= @apartment.building %></h2>
+
+<h3>address: <%= @apartment.address %></h3>
+
+<p>owner: <%= @apartment.owner %></p>
+
+
+<%= link_to  "Back", building_apartments_path(@building) %>
